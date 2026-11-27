@@ -1,0 +1,8 @@
+trakt_config.json
+trakt_token.json
+trakt_cache.json
+trakt_cache.json.tmp
+trakt_edit_log.json
+trakt_backups/
+__pycache__/
+*.pyc
