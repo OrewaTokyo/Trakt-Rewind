@@ -1,4 +1,4 @@
-# 🎬 Trakt-Chrono
+# 🎬 Trakt-Rewind
 
 > A fast, zero-dependency Python CLI for fixing, backdating, and managing Trakt watch history — featuring PKCE OAuth login, runtime-aware timestamp spreading, release-date syncing, local disk caching, and offline snapshot backups.
 
@@ -9,11 +9,11 @@
 
 ---
 
-## ✨ Why Use Trakt-Chrono?
+## ✨ Why Use Trakt-Rewind?
 
 If you have ever imported watch history from another tracker, synced a long-running anime in bulk, or accidentally logged hundreds of episodes on a single day, your Trakt calendar and stats end up with massive artificial spikes.
 
-**Trakt-Chrono** lets you search the Trakt database directly from your terminal and clean up or backfill your watch history accurately — without breaking your daily watch streak or losing completion progress.
+**Trakt-Rewind** lets you search the Trakt database directly from your terminal and clean up or backfill your watch history accurately — without breaking your daily watch streak or losing completion progress.
 
 ---
 
@@ -47,7 +47,7 @@ If you have ever imported watch history from another tracker, synced a long-runn
 1. Go to **[https://developer.trakt.tv/apps](https://developer.trakt.tv/apps)** and sign in with your Trakt account.
 2. Click **Create New App** (or open an existing PKCE app).
 3. Fill in the app details:
-   * **Name:** `Trakt-Chrono` (or any name you like)
+   * **Name:** `Trakt-Rewind` (or any name you like)
    * **Redirect URI:**
      ```text
      http://localhost:8765/callback
@@ -63,7 +63,7 @@ If you have ever imported watch history from another tracker, synced a long-runn
 
 1. Clone this repository (or download the Python script):
    ```bash
-   git clone https://github.com/<your-username>/Trakt-Chrono.git
+   git clone https://github.com/<your-username>/Trakt-Rewind.git
    cd Trakt-Chrono
    ```
 
