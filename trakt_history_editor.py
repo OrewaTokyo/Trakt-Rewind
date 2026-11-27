@@ -57,7 +57,7 @@ if hasattr(sys.stdout, "reconfigure"):
         pass
 
 # ================= CONFIGURATION =================
-DEFAULT_CLIENT_ID = "L509gS6lczNQlD4hxnVYTo-7E7n1aikSHElOwF1nGI4"
+DEFAULT_CLIENT_ID = "PASTE_YOUR_CLIENT_ID_HERE"
 REDIRECT_URI = "http://localhost:8765/callback"
 API_BASE = "https://api.trakt.tv"
 
