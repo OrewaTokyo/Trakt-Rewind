@@ -1,0 +1,27 @@
+{
+  "client_id": "PASTE_YOUR_TRAKT_PKCE_CLIENT_ID_HERE",
+  "redirect_uri": "http://localhost:8765/callback",
+  "cache_enabled": true,
+  "default_sync_mode": "ask",
+  "timestamp_style": "spread",
+  "auto_backup_before_edit": true,
+  "timezone_offset_minutes": null,
+  "timezone_label": "",
+  "schedule": {
+    "default_window": [
+      "07:00",
+      "22:00"
+    ],
+    "weekday_busy_cutoff_date": null,
+    "weekday_windows_before_cutoff": [
+      [
+        "06:00",
+        "07:00"
+      ],
+      [
+        "14:00",
+        "22:00"
+      ]
+    ]
+  }
+}

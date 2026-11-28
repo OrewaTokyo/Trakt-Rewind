@@ -2,23 +2,23 @@
 
 All notable changes to **Trakt-Rewind** will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-11-28
+## [1.0.0] - 2026-11-27
 
 ### Added
-- **Zero-Dependency CLI (`trakt_rewind.py`):** Runs on Python 3.8+ standard library with no external packages.
-- **PKCE OAuth 2.0 Authentication:** Browser-based sign-in with local `http://localhost:8765/callback` receiver, automatic token refresh, and `TRAKT_CLIENT_ID` environment variable support.
-- **Direct Trakt DB Search & Live Hydration:** Exact + fuzzy show search with structured status table (`Title Status`, `My Watch Status / Lists`, `Rating`, `Started`, `Finished`) hydrated via `/shows/{id}/progress/watched`.
-- **Three Watch History Editing Modes:**
-  - Manual Day-by-Day with weekday/weekend window prompts and optional manual start times.
-  - Automatic Spread across Start Date and Catch-up/Finish Date.
-  - Watched on Release Date (`[d]` shortcut or Mode 3) using Trakt's native `watched_at: "released"` with unaired episode protection.
-- **Runtime-Accurate Timestamp Spreading:** Strictly enforces each episode's Trakt metadata runtime so consecutive episodes never overlap, with configurable spacing styles (`spread`, `gap`, `binge`) and overflow notices.
-- **Season & Episode-Wise Browser (`[l]`):** Season overview table with completion %, total runtime, and aired date range, plus season drilldown, paginated `all`, and `u` unwatched views.
-- **Show Ratings (`[r]`):** Add, update (`1–10`), or remove show ratings with optional custom dates.
-- **Configurable Sync Speeds:** Choose between `IMMEDIATE`, `QUICK` (1-confirm), and `DOUBLE` (`yes` + `YES`) confirmation modes.
-- **Smart Local Disk Cache (`trakt_cache.json`):** Delta verification via `/sync/last_activities` for sub-second startup and cached episode guides.
-- **Local Snapshot Backup & Restore (`trakt_backups/`):** Quick Account Snapshots, Full History Snapshots, Single-Show Snapshots (`[k]`), automatic pre-edit snapshots, and double-confirmed Show Restore.
-- **Configurable Timezone & Schedules:** Auto-detects system local timezone with optional UTC offset and split weekday schedule overrides in `trakt_config.json`.
-- **Automated Testing & CI/CD:** Unit test suite (`tests/test_trakt_rewind.py`), cross-platform GitHub Actions CI + secret-leak guard, and automated tag-based Releases.
+- **PKCE OAuth Login:** Secure browser authentication without needing a Client Secret, with automatic local token caching and refresh.
+- **Direct Trakt Global DB Search:** Exact + fuzzy show search displaying a structured status table (`Name`, `Title Status`, `My Watch Status / Lists`, `Rating`, `Started`, `Finished`) with live progress hydration.
+- **Season & Episode-Wise Browser (`[l]`):** Season-by-season overview table (progress %, total runtime, aired date range, status) plus per-season, paginated `all`, and `u` (unwatched-only) episode tables.
+- **3 Watch-History Editing Modes:**
+  - **Manual Day-by-Day:** Prompts day-by-day with weekday/weekend schedule hints, optional manual start times, and mid-session `sync` or `auto` handoff.
+  - **Automatic Spread:** Evenly distributes episodes from a Start Date to a Catch-up/Finish Date.
+  - **Watched on Release Date (`[d]` or Mode 3):** Sets each episode to Trakt's native `"watched_at": "released"` air date while automatically skipping future/unaired episodes.
+- **Runtime-Accurate Timestamp Engine:** Reads every episode's individual Trakt metadata length so consecutive episodes never overlap, with configurable spacing styles (`spread`, `gap`, `binge`), auto-detected local timezone, and optional weekday busy-hour schedules in `trakt_config.json`.
+- **Flexible Range & Date Input:** Supports `1-3`, `S02E01-S02E05`, `2x1-2x5`, `season 2`, `all`, and `YYYY-MM-DD` / `DD-MM-YYYY` dates.
+- **Show Ratings (`[r]`):** Add, update (`1–10`), or remove show ratings directly from the CLI.
+- **Local Disk Cache (`trakt_cache.json`):** Fast startup using Trakt's `/sync/last_activities` delta check with smart partial refreshes and an interactive `cache` management menu.
+- **3 Sync Speeds:** Choose between `Update Immediately`, `Quick 1-Confirm`, or `Safe Double-Confirm`.
+- **Local Snapshot Backups (`trakt_backups/`):** Quick Account snapshots, Full History snapshots, single-show snapshots (`[k]`), automatic pre-edit backups, and safe show history restoration.
+- **CI & Open-Source Polish:** Cross-platform GitHub Actions test matrix (Ubuntu, Windows, macOS), automated tagged releases, unit test suite, issue/PR templates, and `SECURITY.md`.
