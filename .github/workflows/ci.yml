@@ -1,1 +1,49 @@
+name: CI
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }} / Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        python-version: [ "3.9", "3.11", "3.13" ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Syntax check (py_compile)
+        run: python -m py_compile trakt_rewind.py tests/test_trakt_rewind.py
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify no personal secrets or local files committed
+        shell: bash
+        run: |
+          for forbidden in trakt_token.json trakt_config.json trakt_cache.json trakt_edit_log.json; do
+            if [ -f "$forbidden" ]; then
+              echo "ERROR: Forbidden local file '$forbidden' found in repository!"
+              exit 1
+            fi
+          done
+          if [ -d "trakt_backups" ]; then
+            echo "ERROR: Local 'trakt_backups/' directory should not be committed!"
+            exit 1
+          fi
