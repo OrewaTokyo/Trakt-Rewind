@@ -31,7 +31,7 @@ jobs:
           zip -j "Trakt-Rewind-${TAG}.zip" trakt_rewind.py trakt_config.example.json README.md LICENSE SECURITY.md CHANGELOG.md
 
       - name: Publish GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
           files: |
