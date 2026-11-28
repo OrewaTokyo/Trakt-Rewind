@@ -1,1 +1,8 @@
-
+blank_issues_enabled: false
+contact_links:
+  - name: Trakt Developer Portal
+    url: https://developer.trakt.tv/apps
+    about: Create or configure your personal Trakt PKCE application and Redirect URI.
+  - name: Security Policy
+    url: https://github.com/tokyo720022-create/Trakt-Rewind/blob/main/SECURITY.md
+    about: Report a security vulnerability privately instead of opening a public issue.

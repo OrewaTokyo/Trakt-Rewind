@@ -1,0 +1,26 @@
+name: Feature Request
+description: Suggest a new feature, editing mode, or workflow improvement for Trakt-Rewind.
+title: "[Feature]: "
+labels: [ "enhancement" ]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the Trakt history cleanup or tracking workflow you want to improve.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this feature to work in the CLI?
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional Context
+      description: Add mockups, examples, or relevant Trakt API endpoints (optional).
